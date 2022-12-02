@@ -5,21 +5,22 @@ namespace AdventOfCode2022;
 
 internal static class Program
 {
-    private static void Main(string[] args)
+    private static int Main(string[] args)
     {
-        var result = Day1Part2();
-        Console.WriteLine(result);
-    }
+        try
+        {
+            string input  = File.ReadAllText("Input/Day2.txt").TrimEnd();
+            int result = Day2.GetScoreForInputByResult(input);
+        
+            Console.WriteLine(result);
 
-    private static int Day1Part1()
-    {
-        string data = File.ReadAllText("Input/Day1.txt").TrimEnd();
-        return Day1.GetMaxCombinedCalories(data);
-    }
+            return 0;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
 
-    private static int Day1Part2()
-    {
-        string data = File.ReadAllText("Input/Day1.txt").TrimEnd();
-        return Day1.GetTop3CombinedCalories(data);
+            return 1;
+        }
     }
 }
