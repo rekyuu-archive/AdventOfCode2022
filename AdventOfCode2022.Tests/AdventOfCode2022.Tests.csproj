@@ -37,6 +37,10 @@
       <Content Include="TestInput\Day3.txt">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
+      <None Remove="TestInput\Day4.txt" />
+      <Content Include="TestInput\Day4.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>

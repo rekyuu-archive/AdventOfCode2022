@@ -9,8 +9,8 @@ internal static class Program
     {
         try
         {
-            string input  = File.ReadAllText("Input/Day3.txt").TrimEnd();
-            int result = Day3.GetSumOfRankingsForTeam(input);
+            string input  = File.ReadAllText("Input/Day4.txt").TrimEnd();
+            int result = Day4.GetCountOfPartiallyContainedPairs(input);
         
             Console.WriteLine(result);
 
