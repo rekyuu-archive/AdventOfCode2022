@@ -9,8 +9,8 @@ internal static class Program
     {
         try
         {
-            string input  = File.ReadAllText("Input/Day4.txt").TrimEnd();
-            int result = Day4.GetCountOfPartiallyContainedPairs(input);
+            string input  = File.ReadAllText("Input/Day5.txt").TrimEnd();
+            string result = Day5.GetTopCratesFromMultipleSortedCrates(input);
         
             Console.WriteLine(result);
 
