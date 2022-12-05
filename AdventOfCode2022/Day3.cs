@@ -32,12 +32,11 @@ public static class Day3
         int total = 0;
         for (int i = 0; i < rucksacks.Length; i += 3)
         {
-            char commonItem = GetCommonItemInRucksacks(new[]
-            {
+            char commonItem = GetCommonItemInRucksacks(
                 rucksacks[i],
                 rucksacks[i + 1],
                 rucksacks[i + 2]
-            });
+            );
 
             total += GetRankingForItem(commonItem);
         }
@@ -45,21 +44,7 @@ public static class Day3
         return total;
     }
 
-    private static char GetCommonItemInRucksacks(string[] rucksacks)
-    {
-        char? result = 'a';
-        foreach (char item in rucksacks[0])
-        {
-            if (!rucksacks[1].Contains(item) || !rucksacks[2].Contains(item)) continue;
-            if (GetRankingForItem(result.Value) < GetRankingForItem(item)) result = item;
-        }
-
-        if (result == null) throw new Exception($"No common items found in rucksacks: {rucksacks}");
-
-        return result.Value;
-    }
-
-    private static char GetCommonItemInCompartments(string rucksack)
+    public static char GetCommonItemInCompartments(string rucksack)
     {
         int compartmentSize = rucksack.Length / 2;
         string[] compartments = 
@@ -68,11 +53,11 @@ public static class Day3
             rucksack.Substring(compartmentSize, compartmentSize)
         };
 
-        char? result = 'a';
+        char? result = null;
         foreach (char item in compartments[0])
         {
             if (!compartments[1].Contains(item)) continue;
-            if (GetRankingForItem(result.Value) < GetRankingForItem(item)) result = item;
+            if (GetRankingForItem(result ?? 'a') < GetRankingForItem(item)) result = item;
         }
 
         if (result == null) throw new Exception($"No common items found in rucksack: {rucksack}");
@@ -80,7 +65,21 @@ public static class Day3
         return result.Value;
     }
 
-    private static int GetRankingForItem(char item)
+    public static char GetCommonItemInRucksacks(params string[] rucksacks)
+    {
+        char? result = null;
+        foreach (char item in rucksacks[0])
+        {
+            if (!rucksacks[1].Contains(item) || !rucksacks[2].Contains(item)) continue;
+            if (GetRankingForItem(result ?? 'a') < GetRankingForItem(item)) result = item;
+        }
+
+        if (result == null) throw new Exception($"No common items found in rucksacks: {rucksacks}");
+
+        return result.Value;
+    }
+
+    public static int GetRankingForItem(char item)
     {
         return _priorities.IndexOf(item) + 1;
     }

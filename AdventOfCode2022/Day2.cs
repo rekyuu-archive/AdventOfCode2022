@@ -29,7 +29,7 @@ public static class Day2
             .Sum(GetScoreForRoundByResult);
     }
 
-    private static int GetScoreForRoundByResponse(string input)
+    public static int GetScoreForRoundByResponse(string input)
     {
         /* Them   You   Translation   Play Score
          * A      X     Rock          1
@@ -40,6 +40,8 @@ public static class Day2
          * Lose = 0 pts
          * Draw = 3 pts
          */
+
+        if (string.IsNullOrEmpty(input)) throw new Exception($"Input {input} is not valid.");
 
         int playScore = input[^1] switch
         {
@@ -66,7 +68,7 @@ public static class Day2
         return playScore + outcomeScore;
     }
 
-    private static int GetScoreForRoundByResult(string input)
+    public static int GetScoreForRoundByResult(string input)
     {
         /* Play     Translation     Play Score
          * A        Rock            1
@@ -78,6 +80,8 @@ public static class Day2
          * Y        Draw            3
          * Z        Win             6
          */
+
+        if (string.IsNullOrEmpty(input)) throw new Exception($"Input {input} is not valid.");
 
         int outcomeScore = input[^1] switch
         {

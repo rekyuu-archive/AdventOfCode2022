@@ -49,7 +49,7 @@ public static class Day4
         return partiallyContainedPairs;
     }
 
-    private static int[][] GetAssignmentsFromPair(string pair)
+    public static int[][] GetAssignmentsFromPair(string pair)
     {
         return pair
             .Split(",")

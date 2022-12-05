@@ -61,7 +61,7 @@ public class Day5
             .ToArray());
     }
 
-    private static List<List<char>> SortCrates(string input)
+    public static List<List<char>> SortCrates(string input)
     {
         string[] rawCrates = input.Split("\n\n").First().Split("\n").Reverse().Skip(1).ToArray();
         
@@ -84,12 +84,12 @@ public class Day5
         return crates;
     }
 
-    private static string[] GetInstructions(string input)
+    public static string[] GetInstructions(string input)
     {
         return input.Split("\n\n").Last().Split("\n");
     }
 
-    private static (int amount, int source, int destination) ParseInstruction(string instruction)
+    public static (int amount, int source, int destination) ParseInstruction(string instruction)
     {
         Regex rx = new("move ([0-9]+) from ([0-9]+) to ([0-9]+)");
         Match match = rx.Match(instruction);
