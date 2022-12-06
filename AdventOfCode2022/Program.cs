@@ -9,8 +9,8 @@ internal static class Program
     {
         try
         {
-            string input  = File.ReadAllText("Input/Day5.txt").TrimEnd();
-            string result = Day5.GetTopCratesFromMultipleSortedCrates(input);
+            string input  = File.ReadAllText("Input/Day6.txt").TrimEnd();
+            int result = Day6.FindStartOfPacketMarkerIndex(input, 14);
         
             Console.WriteLine(result);
 
