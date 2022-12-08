@@ -9,8 +9,8 @@ internal static class Program
     {
         try
         {
-            string input  = File.ReadAllText("Input/Day6.txt").TrimEnd();
-            int result = Day6.FindStartOfPacketMarkerIndex(input, 14);
+            string input  = File.ReadAllText("Input/Day7.txt").TrimEnd();
+            long result = Day7.GetSmallestDirectorySizeForFreeSpace(input);
         
             Console.WriteLine(result);
 
