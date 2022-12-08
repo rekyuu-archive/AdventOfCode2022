@@ -9,8 +9,8 @@ internal static class Program
     {
         try
         {
-            string input  = File.ReadAllText("Input/Day7.txt").TrimEnd();
-            long result = Day7.GetSmallestDirectorySizeForFreeSpace(input);
+            string input  = File.ReadAllText("Input/Day8.txt").TrimEnd();
+            int result = Day8.GetMaxTreeScore(input);
         
             Console.WriteLine(result);
 

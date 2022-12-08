@@ -6,12 +6,22 @@ namespace AdventOfCode2022;
 
 public static class Day7
 {
+    /// <summary>
+    /// Gets the sum of directories whose sizes are no more than 100000 bytes.
+    /// </summary>
+    /// <param name="input">The terminal log file.</param>
+    /// <returns>The sum of directory sizes.</returns>
     public static long SumOfLargeDirectoriesFromTerminalOutput(string input)
     {
         Dictionary<string, long> directorySizes = GetDirectorySizes(input);
         return directorySizes.Values.Where(x => x <= 100000).Sum();
     }
 
+    /// <summary>
+    /// Gets minimum size of the directory needed to free up enough space for the upgrade.
+    /// </summary>
+    /// <param name="input">The terminal log file.</param>
+    /// <returns>The minimum size of the directory.</returns>
     public static long GetSmallestDirectorySizeForFreeSpace(string input)
     {
         Dictionary<string, long> directorySizes = GetDirectorySizes(input);
@@ -24,6 +34,11 @@ public static class Day7
         return directorySizes.Values.Where(x => x >= requiredDirectorySize).Min();
     }
 
+    /// <summary>
+    /// Gets a dictionary of folder paths with their respective sizes.
+    /// </summary>
+    /// <param name="input">The terminal log file.</param>
+    /// <returns>A dictionary with the path as the key and the directory size as the value.</returns>
     public static Dictionary<string, long> GetDirectorySizes(string input)
     {
         string[] lines = input.Split("\n");
